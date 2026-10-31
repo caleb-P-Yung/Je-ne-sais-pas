@@ -1,6 +1,7 @@
-# # import tensorflow as tf
+import tensorflow as tf
 # import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
 # # a = np.array([1,2,3,4, 5, 6, 7, 8, 9])
 # # b= np.array([1,2,3,4, 5, 6, 7, 8, 9])
 # a=np.array([1,2,3])
@@ -27,17 +28,26 @@ import pandas as pd
 #     # print(f"old Value: \n{a}")
 #     # print(f"new Value: \n{b}")
 
-# print(multply_by_list(a,b))
-data = pd.read_csv("data/test.csv")
-# # print(data.iloc[9])
+# import the data
+data_test = pd.read_csv("data/test.csv")
 
-import matplotlib.pyplot as plt
-import numpy as np
+data_train = pd.read_csv("data/train.csv")
 
-# data = np.random.randn(1000000000)
-plt.hist(data, bins=30, color='skyblue', edgecolor='black')
 
-plt.xlabel('Values')
-plt.ylabel('Frequency')
-plt.title('Basic Histogram')
+# make data points
+x_test = data_test["x"].tolist()
+y_test = data_test["y"].tolist()
+
+x_train=data_train["x"].tolist()
+y_train=data_train["y"].tolist()
+
+
+# Create the plot
+plt.scatter(x_test, y_test, color='blue', s=50, marker='o')
+plt.scatter(x_train, y_train, color='black', s=50, marker='o')
+# Customize and show
+plt.title("AI Plot")
+plt.grid(True)
+plt.xlabel("X Axis")
+plt.ylabel("Y Axis")
 plt.show()
